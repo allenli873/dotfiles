@@ -4,14 +4,14 @@ return {
     config = function()
         local wk = require("which-key")
 
-        wk.register({
-            ["<leader>f"] = { name = "[Telescope]" },
-            ["<leader>g"] = { name = "[Git]" },
-            ["<leader>l"] = { name = "[LSP]" },
-            ["<leader>b"] = { name = "[Buffer]" },
-            ["<leader>lt"] = { name = "[Typescript]" },
-            ["<leader>q"] = { name = "[QuickFix]" },
-            ["<leader>a"] = { name = "[AI]" },
+        wk.add({
+            { "<leader>a", group = "[AI]", nowait = true, remap = false },
+            { "<leader>b", group = "[Buffer]", nowait = true, remap = false },
+            { "<leader>f", group = "[Telescope]", nowait = true, remap = false },
+            { "<leader>g", group = "[Git]", nowait = true, remap = false },
+            { "<leader>l", group = "[LSP]", nowait = true, remap = false },
+            { "<leader>lt", group = "[Typescript]", nowait = true, remap = false },
+            { "<leader>q", group = "[QuickFix]", nowait = true, remap = false },
         }, {
             mode = "n",
             prefix = "",
@@ -26,7 +26,7 @@ return {
                 separator = " ",
                 group = "+ ",
             },
-            key_labels = {
+            replace = {
                 ["<space>"] = "SPACE",
                 ["<leader>"] = "SPACE",
                 ["<cr>"] = "RETURN",
