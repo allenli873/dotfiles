@@ -21,6 +21,7 @@ require("lazy").setup({
     { import = "v.plugins.conform" },
     { import = "v.plugins.crates" },
     { import = "v.plugins.fidget" },
+    { import = "v.plugins.flash" },
     { import = "v.plugins.gitsigns" },
     { import = "v.plugins.heirline" },
     { import = "v.plugins.ibl" },
