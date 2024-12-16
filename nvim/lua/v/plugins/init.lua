@@ -30,7 +30,6 @@ require("lazy").setup({
     { import = "v.plugins.mason" },
     { import = "v.plugins.matchup" },
     { import = "v.plugins.mini-icons" },
-    { import = "v.plugins.neogit" },
     { import = "v.plugins.neotree" },
     { import = "v.plugins.signature" },
     { import = "v.plugins.smart-splits" },
