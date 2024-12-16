@@ -12,5 +12,15 @@ return {
         quickfile = { enabled = true },
         statuscolumn = { enabled = true },
         words = { enabled = true },
+        lazygit = { enabled = true },
+    },
+    keys = {
+        {
+            "<leader>gg",
+            function()
+                require("snacks").lazygit()
+            end,
+            desc = "Lazygit",
+        },
     },
 }
