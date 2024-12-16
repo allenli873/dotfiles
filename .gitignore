@@ -1,2 +1,10 @@
-gh/
-configstore/
+# Gitignore, whitelist style
+# https://www.howtogeek.com/devops/how-to-set-up-gitignore-as-a-whitelist/
+*
+!*/
+!.gitignore
+!alacritty/**
+!lazygit/**
+!nvim/**
+!tmux/tmux.conf.local
+
