@@ -30,7 +30,15 @@ return {
                     end
                 end,
             },
-            incremental_selection = { enable = false },
+            incremental_selection = {
+                enable = true,
+                keymaps = {
+                    init_selection = "<C-space>",
+                    node_incremental = "<C-space>",
+                    scope_incremental = false,
+                    node_decremental = "<bs>",
+                },
+            },
             textobjects = {
                 select = {
                     enable = true,

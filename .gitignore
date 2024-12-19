@@ -7,4 +7,5 @@
 !lazygit/**
 !nvim/**
 !tmux/tmux.conf.local
+tmux/plugins
 
