@@ -19,6 +19,7 @@ require("lazy").setup({
     { import = "v.plugins.colorizer" },
     { import = "v.plugins.comment" },
     { import = "v.plugins.conform" },
+    { import = "v.plugins.copilot" },
     { import = "v.plugins.crates" },
     { import = "v.plugins.fidget" },
     { import = "v.plugins.flash" },
