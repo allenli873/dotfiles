@@ -36,6 +36,7 @@ require("lazy").setup({
     { import = "v.plugins.neotree" },
     { import = "v.plugins.signature" },
     { import = "v.plugins.smart-splits" },
+    { import = "v.plugins.smear-cursor" },
     { import = "v.plugins.snacks" },
     { import = "v.plugins.statuscol" },
     { import = "v.plugins.surround" },
