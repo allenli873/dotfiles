@@ -209,6 +209,19 @@ return {
 
         lspconfig.rust_analyzer.setup({
             capabilities = capabilities,
+            settings = {
+                ["rust-analyzer"] = {
+                    checkOnSave = {
+                        command = "clippy",
+                    },
+                    cargo = {
+                        loadOutDirsFromCheck = true,
+                    },
+                    procMacro = {
+                        enable = true,
+                    },
+                },
+            },
         })
 
         lspconfig.taplo.setup({
