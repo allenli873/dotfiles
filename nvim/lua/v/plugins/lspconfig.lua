@@ -143,6 +143,17 @@ return {
             ),
         })
 
+        lspconfig.gh_actions_ls.setup({
+            capabilities = capabilities,
+            filetypes = { "yaml.github" },
+        })
+
+        vim.filetype.add({
+            pattern = {
+                [".*/%.github[%w/]+workflows[%w/]+.*%.ya?ml"] = "yaml.github",
+            },
+        })
+
         lspconfig.golangci_lint_ls.setup({
             capabilities = capabilities,
         })

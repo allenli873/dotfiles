@@ -10,7 +10,7 @@ return {
             dockerfile = { "hadolint" },
             fish = { "fish" },
             sh = { "shellcheck" },
-            yaml = { "yamllint", "actionlint" },
+            yaml = { "actionlint" },
             zsh = { "shellcheck" },
             NeogitCommitMessage = { "alex" },
             markdown = { "alex" },

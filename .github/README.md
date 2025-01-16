@@ -11,7 +11,15 @@ This repository contains my personal dotfiles, configurations, and scripts for c
 
 ```md
 - ide: Neovim
-- terminal: PuTTY (at work), iTerm (for personal use)
+- terminal: KiTTY (at work), Ghostty (for personal use)
 - shell: zsh
 - theme: catppuccin
+```
+
+## GitHub Language Server
+
+nvim-lspconfig added `gh-actions-language-server` support. For now, you have to install it yourself with:
+
+```bash
+npm install -g gh-actions-language-server
 ```
