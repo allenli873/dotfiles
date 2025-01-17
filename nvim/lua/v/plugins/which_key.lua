@@ -7,7 +7,6 @@ return {
         wk.add({
             { "<leader>a", group = "[AI]", nowait = true, remap = false },
             { "<leader>b", group = "[Buffer]", nowait = true, remap = false },
-            { "<leader>f", group = "[Telescope]", nowait = true, remap = false },
             { "<leader>g", group = "[Git]", nowait = true, remap = false },
             { "<leader>l", group = "[LSP]", nowait = true, remap = false },
             { "<leader>lt", group = "[Typescript]", nowait = true, remap = false },

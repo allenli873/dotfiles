@@ -90,10 +90,6 @@ return {
                 vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { buffer = ev.buf, desc = "Rename" })
                 vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = ev.buf, desc = "Show hover" })
                 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = ev.buf, desc = "Goto Declaration" })
-                vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = ev.buf, desc = "Goto Definition" })
-                vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = ev.buf, desc = "Show References" })
-                vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = ev.buf, desc = "Goto Implementation" })
-
                 vim.keymap.set("n", "<leader>li", function()
                     vim.lsp.inlay_hint(0, nil)
                 end, { buffer = ev.buf, desc = "Toggle Inlay Hints" })
