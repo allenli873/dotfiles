@@ -39,7 +39,6 @@ require("lazy").setup({
     { import = "v.plugins.snacks" },
     { import = "v.plugins.statuscol" },
     { import = "v.plugins.surround" },
-    { import = "v.plugins.tmux-navigator" },
     { import = "v.plugins.treesitter" },
     { import = "v.plugins.treesj" },
     { import = "v.plugins.typescript-tools" },
