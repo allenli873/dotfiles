@@ -26,7 +26,6 @@ require("lazy").setup({
     { import = "v.plugins.gitsigns" },
     { import = "v.plugins.guess-indent" },
     { import = "v.plugins.heirline" },
-    { import = "v.plugins.ibl" },
     { import = "v.plugins.illuminate" },
     { import = "v.plugins.lint" },
     { import = "v.plugins.lspconfig" },
