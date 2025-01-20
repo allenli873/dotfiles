@@ -13,6 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     { import = "v.plugins.autopairs" },
+    { import = "v.plugins.barbar" },
     { import = "v.plugins.barbecue" },
     { import = "v.plugins.catppuccin" },
     { import = "v.plugins.cmp" },
