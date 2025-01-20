@@ -87,6 +87,7 @@ return {
                     { buffer = ev.buf, desc = "Show Type Definition" }
                 )
                 vim.keymap.set("n", "<leader>lc", vim.lsp.buf.code_action, { buffer = ev.buf, desc = "Code Actions" })
+                vim.keymap.set("v", "<leader>lc", vim.lsp.buf.code_action, { buffer = ev.buf, desc = "Code Actions" })
                 vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { buffer = ev.buf, desc = "Rename" })
                 vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = ev.buf, desc = "Show hover" })
                 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = ev.buf, desc = "Goto Declaration" })
