@@ -14,7 +14,7 @@ return {
             { "<leader>lt", group = "[Typescript]", nowait = true, remap = false },
             { "<leader>q", group = "[QuickFix]", nowait = true, remap = false },
             { "<leader>s", group = "[Search]", nowait = true, remap = false },
-            { "<leader>u", group = "[Colorscheme]", nowait = true, remap = false },
+            { "<leader>u", group = "[User Settings]", nowait = true, remap = false },
         }, {
             mode = "n",
             prefix = "",
