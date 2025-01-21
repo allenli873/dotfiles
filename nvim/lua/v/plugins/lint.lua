@@ -13,7 +13,6 @@ return {
             yaml = { "actionlint" },
             zsh = { "shellcheck" },
             NeogitCommitMessage = { "alex" },
-            markdown = { "alex" },
         }
 
         vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {

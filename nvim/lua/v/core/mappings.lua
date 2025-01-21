@@ -1,5 +1,3 @@
-vim.keymap.set("n", "<leader>bk", "<CMD>bd<CR>", { desc = "Kill current buffer" })
-vim.keymap.set("n", "<leader>bK", "<CMD>%bd|e#|bd#<CR>", { desc = "Kill other buffers" })
 vim.keymap.set("n", "[b", "<CMD>bprevious<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "]b", "<CMD>bnext<CR>", { desc = "Next buffer" })
 

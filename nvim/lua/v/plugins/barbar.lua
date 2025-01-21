@@ -25,7 +25,6 @@ return {
         { "<leader>8", "<Cmd>BufferGoto 8<CR>", desc = "Go to buffer 8" },
         { "<leader>9", "<Cmd>BufferGoto 9<CR>", desc = "Go to buffer 9" },
         { "<leader>0", "<Cmd>BufferLast<CR>", desc = "Go to last buffer" },
-        { "<leader>c", "<Cmd>BufferClose<CR>", desc = "Close current buffer" },
         { "<leader>p", "<Cmd>BufferPrevious<CR>", desc = "Go to previous buffer" },
         { "<leader>n", "<Cmd>BufferNext<CR>", desc = "Go to next buffer" },
         { "<leader>P", "<Cmd>BufferMovePrevious<CR>", desc = "Move buffer left" },
