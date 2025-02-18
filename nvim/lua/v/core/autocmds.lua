@@ -4,14 +4,6 @@ local function _set_indent_size(size)
     vim.opt_local.softtabstop = size
 end
 
-vim.api.nvim_create_autocmd("TextYankPost", {
-    pattern = "*",
-    callback = function()
-        vim.highlight.on_yank({ higroup = "YankHighlight", timeout = 300 })
-    end,
-    group = vim.api.nvim_create_augroup("YankHighlight", { clear = true }),
-})
-
 vim.api.nvim_create_autocmd("VimResized", {
     group = vim.api.nvim_create_augroup("ResizeSplit", { clear = true }),
     callback = function()

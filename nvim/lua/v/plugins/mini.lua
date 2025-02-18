@@ -2,6 +2,7 @@ return {
     "echasnovski/mini.nvim",
     lazy = true,
     init = function()
+        require("mini.ai").setup()
         require("mini.cursorword").setup()
         require("mini.files").setup({
             mappings = {
