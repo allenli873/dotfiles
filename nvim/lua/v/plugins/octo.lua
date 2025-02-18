@@ -12,6 +12,7 @@ return {
             picker = "fzf-lua",
         },
         keys = {
+            { "<leader>gn", "<cmd>Octo issue create<CR>", desc = "Create Issue (Octo)" },
             { "<leader>gi", "<cmd>Octo issue list<CR>", desc = "List Issues (Octo)" },
             { "<leader>gI", "<cmd>Octo issue search<CR>", desc = "Search Issues (Octo)" },
             { "<leader>gp", "<cmd>Octo pr list<CR>", desc = "List PRs (Octo)" },
