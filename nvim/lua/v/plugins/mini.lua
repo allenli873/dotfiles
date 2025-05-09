@@ -11,7 +11,6 @@ return {
             },
         })
         require("mini.hipatterns").setup()
-        require("mini.notify").setup()
         require("mini.splitjoin").setup({
             mappings = {
                 toggle = "J",

@@ -111,6 +111,10 @@ return {
             filetypes = { "sh", "zsh" },
         })
 
+        lspconfig.basedpyright.setup({
+            capabilities = capabilities,
+        })
+
         lspconfig.cssls.setup({
             capabilities = capabilities,
         })
@@ -211,23 +215,6 @@ return {
                     completion = { callSnippet = "Replace" },
                     workspace = { checkThirdParty = false },
                     telemetry = { enable = false },
-                },
-            },
-        })
-
-        lspconfig.rust_analyzer.setup({
-            capabilities = capabilities,
-            settings = {
-                ["rust-analyzer"] = {
-                    checkOnSave = {
-                        command = "clippy",
-                    },
-                    cargo = {
-                        loadOutDirsFromCheck = true,
-                    },
-                    procMacro = {
-                        enable = true,
-                    },
                 },
             },
         })

@@ -48,6 +48,7 @@ return {
                 "prettierd",
                 "shfmt",
                 "stylua",
+                "basedpyright",
             },
         })
     end,
