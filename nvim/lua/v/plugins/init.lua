@@ -16,6 +16,7 @@ require("lazy").setup({
     { import = "v.plugins.barbecue" },
     { import = "v.plugins.blink" },
     { import = "v.plugins.catppuccin" },
+    { import = "v.plugins.codecompanion" },
     { import = "v.plugins.conform" },
     { import = "v.plugins.copilot" },
     { import = "v.plugins.crates" },

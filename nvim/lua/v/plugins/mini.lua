@@ -4,6 +4,7 @@ return {
     init = function()
         require("mini.ai").setup()
         require("mini.cursorword").setup()
+        require("mini.diff").setup()
         require("mini.files").setup({
             mappings = {
                 go_in = "<Right>",
