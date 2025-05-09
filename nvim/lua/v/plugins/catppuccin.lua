@@ -72,7 +72,7 @@ return {
             integration_default = false,
             integrations = {
                 barbecue = { dim_dirname = true, bold_basename = true, dim_context = false, alt_background = false },
-                cmp = true,
+                blink_cmp = true,
                 gitsigns = true,
                 hop = true,
                 illuminate = { enabled = true },

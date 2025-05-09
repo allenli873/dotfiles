@@ -14,8 +14,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     { import = "v.plugins.barbar" },
     { import = "v.plugins.barbecue" },
+    { import = "v.plugins.blink" },
     { import = "v.plugins.catppuccin" },
-    { import = "v.plugins.cmp" },
     { import = "v.plugins.conform" },
     { import = "v.plugins.copilot" },
     { import = "v.plugins.crates" },
