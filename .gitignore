@@ -3,9 +3,10 @@
 *
 !*/
 !.gitignore
-!alacritty/**
+!ghostty/**
 !lazygit/**
 !nvim/**
 !tmux/tmux.conf.local
 tmux/plugins
+**/.claude/settings.local.json
 
