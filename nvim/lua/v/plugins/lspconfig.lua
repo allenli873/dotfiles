@@ -7,23 +7,21 @@ return {
         "saghen/blink.cmp",
     },
     config = function()
-        local lspconfig = require("lspconfig")
-
         vim.fn.sign_define(
             "DiagnosticSignError",
-            { text = "", texthl = "DiagnosticSignError", numhl = "DiagnosticSignError" }
+            { text = "", texthl = "DiagnosticSignError", numhl = "DiagnosticSignError" }
         )
         vim.fn.sign_define(
             "DiagnosticSignHint",
-            { text = "", texthl = "DiagnosticSignHint", numhl = "DiagnosticSignHint" }
+            { text = "", texthl = "DiagnosticSignHint", numhl = "DiagnosticSignHint" }
         )
         vim.fn.sign_define(
             "DiagnosticSignInfo",
-            { text = "", texthl = "DiagnosticSignInfo", numhl = "DiagnosticSignInfo" }
+            { text = "", texthl = "DiagnosticSignInfo", numhl = "DiagnosticSignInfo" }
         )
         vim.fn.sign_define(
             "DiagnosticSignWarn",
-            { text = "", texthl = "DiagnosticSignWarn", numhl = "DiagnosticSignWarn" }
+            { text = "", texthl = "DiagnosticSignWarn", numhl = "DiagnosticSignWarn" }
         )
 
         vim.diagnostic.config({
@@ -68,10 +66,6 @@ return {
             border = "single",
         })
 
-        require("lspconfig.ui.windows").default_options = {
-            border = "single",
-        }
-
         vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Next Diagnostic" })
         vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous Diagnostic" })
         vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
@@ -97,51 +91,41 @@ return {
             end,
         })
 
-        local capabilities = require("blink.cmp").get_lsp_capabilities()
+        -- Global capabilities from blink.cmp
+        vim.lsp.config("*", {
+            capabilities = require("blink.cmp").get_lsp_capabilities(),
+        })
 
-        lspconfig.bashls.setup({
-            capabilities = capabilities,
+        vim.lsp.config("bashls", {
             cmd_env = {
                 GLOB_PATTERN = "*@(.sh|.inc|.bash|.command|.zsh)",
             },
             filetypes = { "sh", "zsh" },
         })
 
-        lspconfig.basedpyright.setup({
-            capabilities = capabilities,
-        })
+        vim.lsp.config("basedpyright", {})
 
-        lspconfig.cssls.setup({
-            capabilities = capabilities,
-        })
+        vim.lsp.config("cssls", {})
 
-        lspconfig.docker_compose_language_service.setup({
-            capabilities = capabilities,
-        })
+        vim.lsp.config("docker_compose_language_service", {})
 
-        lspconfig.dockerls.setup({
-            capabilities = capabilities,
-        })
+        vim.lsp.config("dockerls", {})
 
-        lspconfig.emmet_language_server.setup({
-            capabilities = capabilities,
-        })
+        vim.lsp.config("emmet_language_server", {})
 
-        lspconfig.eslint.setup({
-            capabilities = capabilities,
-            root_dir = lspconfig.util.root_pattern(
+        vim.lsp.config("eslint", {
+            root_markers = {
                 ".eslintrc",
                 ".eslintrc.js",
                 ".eslintrc.yml",
                 ".eslintrc.json",
                 "eslint.config.js",
                 ".eslintrc.cjs",
-                ".eslintrc.yaml"
-            ),
+                ".eslintrc.yaml",
+            },
         })
 
-        lspconfig.gh_actions_ls.setup({
-            capabilities = capabilities,
+        vim.lsp.config("gh_actions_ls", {
             filetypes = { "yaml.github" },
         })
 
@@ -151,12 +135,9 @@ return {
             },
         })
 
-        lspconfig.golangci_lint_ls.setup({
-            capabilities = capabilities,
-        })
+        vim.lsp.config("golangci_lint_ls", {})
 
-        lspconfig.gopls.setup({
-            capabilities = capabilities,
+        vim.lsp.config("gopls", {
             settings = {
                 gopls = {
                     experimentalPostfixCompletions = true,
@@ -172,19 +153,16 @@ return {
             },
         })
 
-        lspconfig.graphql.setup({
-            capabilities = capabilities,
-        })
+        vim.lsp.config("graphql", {})
 
-        lspconfig.html.setup({
+        vim.lsp.config("html", {
             on_attach = function(client)
                 client.server_capabilities.documentFormattingProvider = false
                 client.server_capabilities.documentRangeFormattingProvider = false
             end,
-            capabilities = capabilities,
         })
 
-        lspconfig.jsonls.setup({
+        vim.lsp.config("jsonls", {
             on_attach = function(client)
                 client.server_capabilities.documentFormattingProvider = false
                 client.server_capabilities.documentRangeFormattingProvider = false
@@ -198,11 +176,9 @@ return {
             init_options = {
                 provideFormatter = false,
             },
-            capabilities = capabilities,
         })
 
-        lspconfig.lua_ls.setup({
-            capabilities = capabilities,
+        vim.lsp.config("lua_ls", {
             settings = {
                 Lua = {
                     runtime = { version = "LuaJIT" },
@@ -215,12 +191,9 @@ return {
             },
         })
 
-        lspconfig.taplo.setup({
-            capabilities = capabilities,
-        })
+        vim.lsp.config("taplo", {})
 
-        lspconfig.yamlls.setup({
-            capabilities = capabilities,
+        vim.lsp.config("yamlls", {
             settings = {
                 yaml = {
                     schemaStore = {
@@ -232,9 +205,8 @@ return {
             },
         })
 
-        lspconfig.tailwindcss.setup({
-            capabilities = capabilities,
-            root_dir = lspconfig.util.root_pattern(
+        vim.lsp.config("tailwindcss", {
+            root_markers = {
                 "tailwind.config.js",
                 "tailwind.config.cjs",
                 "tailwind.config.mjs",
@@ -242,8 +214,28 @@ return {
                 "postcss.config.js",
                 "postcss.config.cjs",
                 "postcss.config.mjs",
-                "postcss.config.ts"
-            ),
+                "postcss.config.ts",
+            },
+        })
+
+        vim.lsp.enable({
+            "bashls",
+            "basedpyright",
+            "cssls",
+            "docker_compose_language_service",
+            "dockerls",
+            "emmet_language_server",
+            "eslint",
+            "gh_actions_ls",
+            "golangci_lint_ls",
+            "gopls",
+            "graphql",
+            "html",
+            "jsonls",
+            "lua_ls",
+            "taplo",
+            "yamlls",
+            "tailwindcss",
         })
     end,
 }
