@@ -19,7 +19,7 @@ vim.opt.expandtab = true
 vim.opt.fileencoding = "utf-8"
 vim.opt.fillchars = { fold = " ", vert = "│", eob = " ", msgsep = "‾" }
 vim.opt.foldenable = false
-vim.opt.formatoptions = "jcroqlnt"
+vim.opt.formatoptions = "jqlnt"
 vim.opt.grepformat = "%f:%l:%c:%m"
 vim.opt.grepprg = "rg --vimgrep"
 vim.opt.hidden = true
@@ -51,7 +51,7 @@ vim.opt.swapfile = false
 vim.opt.tabstop = 2
 vim.opt.termguicolors = true
 vim.opt.timeoutlen = 300
-vim.opt.undodir = "/tmp/nvim-undo"
+vim.opt.undodir = vim.fn.stdpath("state") .. "/undo"
 vim.opt.undofile = true
 vim.opt.updatetime = 200
 vim.opt.wildignorecase = true

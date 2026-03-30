@@ -3,7 +3,6 @@ return {
     lazy = true,
     init = function()
         require("mini.ai").setup()
-        require("mini.cursorword").setup()
         require("mini.diff").setup()
         require("mini.files").setup({
             mappings = {

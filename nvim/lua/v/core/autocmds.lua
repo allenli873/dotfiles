@@ -34,17 +34,6 @@ vim.api.nvim_create_autocmd("TermOpen", {
     end,
 })
 
-vim.api.nvim_create_autocmd("BufWinEnter", {
-    pattern = "*",
-    callback = function()
-        vim.api.nvim_set_option_value(
-            "formatoptions",
-            (string.gsub(vim.api.nvim_get_option_value("formatoptions", { scope = "local" }), "[cro]", "")),
-            { scope = "local" }
-        )
-    end,
-})
-
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "qf",
     callback = function(event)
@@ -61,7 +50,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         if event.match:match("^%w%w+://") then
             return
         end
-        local file = vim.loop.fs_realpath(event.match) or event.match
+        local file = vim.uv.fs_realpath(event.match) or event.match
         vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
     end,
 })

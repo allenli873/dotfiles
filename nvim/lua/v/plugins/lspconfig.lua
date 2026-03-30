@@ -7,40 +7,19 @@ return {
         "saghen/blink.cmp",
     },
     config = function()
-        vim.fn.sign_define(
-            "DiagnosticSignError",
-            { text = "", texthl = "DiagnosticSignError", numhl = "DiagnosticSignError" }
-        )
-        vim.fn.sign_define(
-            "DiagnosticSignHint",
-            { text = "", texthl = "DiagnosticSignHint", numhl = "DiagnosticSignHint" }
-        )
-        vim.fn.sign_define(
-            "DiagnosticSignInfo",
-            { text = "", texthl = "DiagnosticSignInfo", numhl = "DiagnosticSignInfo" }
-        )
-        vim.fn.sign_define(
-            "DiagnosticSignWarn",
-            { text = "", texthl = "DiagnosticSignWarn", numhl = "DiagnosticSignWarn" }
-        )
+        local diagnostic_icons = {
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN] = "",
+            [vim.diagnostic.severity.INFO] = "",
+            [vim.diagnostic.severity.HINT] = "",
+        }
 
         vim.diagnostic.config({
             virtual_text = {
                 source = false,
                 prefix = "",
                 format = function(diagnostic)
-                    local sign = ""
-
-                    if diagnostic.severity == vim.diagnostic.severity.ERROR then
-                        sign = vim.fn.sign_getdefined("DiagnosticSignError")[1].text
-                    elseif diagnostic.severity == vim.diagnostic.severity.WARN then
-                        sign = vim.fn.sign_getdefined("DiagnosticSignWarn")[1].text
-                    elseif diagnostic.severity == vim.diagnostic.severity.INFO then
-                        sign = vim.fn.sign_getdefined("DiagnosticSignInfo")[1].text
-                    elseif diagnostic.severity == vim.diagnostic.severity.HINT then
-                        sign = vim.fn.sign_getdefined("DiagnosticSignHint")[1].text
-                    end
-
+                    local sign = diagnostic_icons[diagnostic.severity] or ""
                     return string.format("%s%s: %s ", sign, diagnostic.source or "", diagnostic.message)
                 end,
             },
@@ -52,7 +31,9 @@ return {
                     return string.format("%s: %s ", diagnostic.source or "", diagnostic.message)
                 end,
             },
-            signs = true,
+            signs = {
+                text = diagnostic_icons,
+            },
             underline = true,
             update_in_insert = false,
             severity_sort = true,
@@ -73,7 +54,6 @@ return {
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("UserLspConfig", {}),
             callback = function(ev)
-                vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { buffer = ev.buf, desc = "Signature Help" })
                 vim.keymap.set(
                     "n",
                     "<leader>D",
@@ -86,7 +66,7 @@ return {
                 vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = ev.buf, desc = "Show hover" })
                 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = ev.buf, desc = "Goto Declaration" })
                 vim.keymap.set("n", "<leader>li", function()
-                    vim.lsp.inlay_hint(0, nil)
+                    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
                 end, { buffer = ev.buf, desc = "Toggle Inlay Hints" })
             end,
         })
@@ -102,16 +82,6 @@ return {
             },
             filetypes = { "sh", "zsh" },
         })
-
-        vim.lsp.config("basedpyright", {})
-
-        vim.lsp.config("cssls", {})
-
-        vim.lsp.config("docker_compose_language_service", {})
-
-        vim.lsp.config("dockerls", {})
-
-        vim.lsp.config("emmet_language_server", {})
 
         vim.lsp.config("eslint", {
             root_markers = {
@@ -135,12 +105,9 @@ return {
             },
         })
 
-        vim.lsp.config("golangci_lint_ls", {})
-
         vim.lsp.config("gopls", {
             settings = {
                 gopls = {
-                    experimentalPostfixCompletions = true,
                     analyses = {
                         unusedparams = true,
                         shadow = true,
@@ -152,8 +119,6 @@ return {
                 usePlaceholders = true,
             },
         })
-
-        vim.lsp.config("graphql", {})
 
         vim.lsp.config("html", {
             on_attach = function(client)
@@ -190,8 +155,6 @@ return {
                 },
             },
         })
-
-        vim.lsp.config("taplo", {})
 
         vim.lsp.config("yamlls", {
             settings = {

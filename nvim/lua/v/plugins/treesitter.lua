@@ -24,7 +24,7 @@ return {
                 additional_vim_regex_highlighting = false,
                 max_file_lines = MAX_FILE_LINES,
                 disable = function(_, bufnr)
-                    local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(bufnr))
+                    local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(bufnr))
                     if ok and stats and stats.size > MAX_FILE_SIZE then
                         return true
                     end
